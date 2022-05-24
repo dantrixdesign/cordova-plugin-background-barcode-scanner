@@ -6,7 +6,7 @@
   <name>BBScanner</name>
 
   <engines>
-    <engine name="cordova" version=">=8.1.0"/>
+     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
   <js-module src="www/background-barcode-scanner.js" name="BBScanner">
