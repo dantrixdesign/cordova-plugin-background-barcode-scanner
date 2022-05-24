@@ -425,19 +425,10 @@ public class BBScanner extends CordovaPlugin implements BarcodeCallback {
             for (int i = 0; i < permissions.length; i++) {
                 String permission = permissions[i];
                 if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
-                    boolean showRationale = ActivityCompat.shouldShowRequestPermissionRationale(cordova.getActivity(), permission);
-                    if (! showRationale) {
-                        // user denied flagging NEVER ASK AGAIN
-                        denied = true;
-                        authorized = false;
-                        callbackContext.error(BBScannerError.CAMERA_ACCESS_DENIED);
-                        return;
-                    } else {
-                        authorized = false;
-                        denied = false;
-                        callbackContext.error(BBScannerError.CAMERA_ACCESS_DENIED);
-                        return;
-                    }
+                    authorized = false;
+                    denied = false;
+                    callbackContext.error(BBScannerError.CAMERA_ACCESS_DENIED);
+                    return;
                 } else if (grantResults[i] == PackageManager.PERMISSION_GRANTED){
                     authorized = true;
                     denied = false;
